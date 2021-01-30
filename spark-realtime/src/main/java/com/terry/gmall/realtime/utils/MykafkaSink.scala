@@ -39,4 +39,8 @@ object MykafkaSink {
 
   }
 
+  def close(): Unit ={
+    kafkaProducer.close()
+  }
+
 }
