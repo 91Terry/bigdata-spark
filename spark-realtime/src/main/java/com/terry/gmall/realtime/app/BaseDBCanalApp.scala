@@ -1,7 +1,7 @@
 package com.terry.gmall.realtime.app
 
 import com.alibaba.fastjson.{JSON, JSONArray, JSONObject}
-import com.terry.gmall.realtime.utils.{MykafkaSink, MykafkaUtil, OffsetManagerUtil}
+import com.terry.gmall.realtime.utils.{HbaseUtil, MykafkaSink, MykafkaUtil, OffsetManagerUtil}
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.common.TopicPartition
 import org.apache.spark.SparkConf
@@ -70,12 +70,11 @@ object BaseDBCanalApp {
               val pk: String = dataJsonObj.getString(pkName)
 
               //将数据主键1先补上0，位数预计数数据的上限，再反转
-              val rowkey: String = StringUtils.leftPad(pk,10,"0").reverse
-              val namespace:String = "GMALL"
-              val hbaseTable:String = namespace+":"+"DIM_"+table.toUpperCase
-              val family = "INFO"
-              val column_value = data
+              val rowkey: String =HbaseUtil.getDimRowkey(pk)
+              val hbaseTable: String = "DIM_" + table.toUpperCase
+              val dataMap: java.util.Map[String, AnyRef] = dataJsonObj.getInnerMap //key= columnName ,value= value
 
+              HbaseUtil.put(hbaseTable, rowkey, dataMap)
             }
           }
 
