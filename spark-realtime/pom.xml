@@ -15,7 +15,7 @@
 
     <properties>
         <spark.version>3.0.0</spark.version>
-        <scala.version>2.12.11</scala.version>
+        <scala.version>2.12.10</scala.version>
         <kafka.version>2.4.1</kafka.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -93,30 +93,6 @@
             <version>2.7.8</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.elasticsearch</groupId>
-            <artifactId>elasticsearch</artifactId>
-            <version>6.6.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.searchbox</groupId>
-            <artifactId>jest</artifactId>
-            <version>5.3.3</version>
-
-        </dependency>
-
-        <dependency>
-            <groupId>net.java.dev.jna</groupId>
-            <artifactId>jna</artifactId>
-            <version>4.5.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.codehaus.janino</groupId>
-            <artifactId>commons-compiler</artifactId>
-            <version>2.7.8</version>
-        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
         <dependency>
@@ -137,11 +113,19 @@
             <version>5.1.47</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.json4s</groupId>
+            <artifactId>json4s-jackson_2.12</artifactId>
+            <version>3.5.0</version>
+        </dependency>
+
 
     </dependencies>
 
     <build>
         <plugins>
+
+
             <!-- 该插件用于将Scala代码编译成class文件 -->
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
@@ -177,7 +161,10 @@
                     </execution>
                 </executions>
             </plugin>
+
+
         </plugins>
+
     </build>
 
 
