@@ -1,12 +1,13 @@
 package com.terry.gmall.realtime.app
 
+import java.text.SimpleDateFormat
 import java.util
 import java.util.Date
 
 import com.alibaba.fastjson.serializer.SerializeConfig
 import com.alibaba.fastjson.{JSON, JSONObject}
 import com.terry.gmall.realtime.bean.{OrderDetail, OrderInfo, OrderWide}
-import com.terry.gmall.realtime.utils.{HbaseUtil, MykafkaUtil, OffsetManagerUtil, RedisUtil}
+import com.terry.gmall.realtime.utils.{HbaseUtil, MyEsUtil, MykafkaUtil, OffsetManagerUtil, RedisUtil}
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.common.TopicPartition
 import org.apache.spark.SparkConf
@@ -188,8 +189,23 @@ object OrderWideApp {
       orderWideList
     }
 
+    orderWideDstream.cache()
     orderWideDstream.print(1000)
     //orderJoinDstream.print(1000)
+
+    //保存数据到ES
+    orderWideDstream.foreachRDD{rdd =>
+      rdd.foreachPartition{orderWideItr =>
+        val dt: String = new SimpleDateFormat("yyyy-MM-dd").format(new Date())
+        //通过增加id来实现相同的mid的幂等性
+        val dataList: List[(String, OrderWide)] = orderWideItr.toList.map(orderWide => (orderWide.detail_id.toString,orderWide))
+        MyEsUtil.saveBulk("gmall2020_order_wide_"+dt,dataList)
+      }
+      OffsetManagerUtil.saveOffset(orderInfoTopic,groupid,orderInfoOffsetRanges)
+      OffsetManagerUtil.saveOffset(orderDetailTopic,groupid,orderDetailOffsetRanges)
+    }
+
+
     ssc.start()
     ssc.awaitTermination()
 
