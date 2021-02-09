@@ -48,7 +48,7 @@ object MyEsUtil {
     searchSourceBuilder.fetchSource(Array("name","doubanScore"),null)
 
     val search: Search = new Search.Builder(searchSourceBuilder.toString)
-      .addIndex("movie_index0921")
+      .addIndex("movie_index")
       .addType("movie").build()
     val result: SearchResult = jest.execute(search)
     val rsList: util.List[SearchResult#Hit[util.Map[String, Any], Void]] = result.getHits(classOf[util.Map[String,Any]])

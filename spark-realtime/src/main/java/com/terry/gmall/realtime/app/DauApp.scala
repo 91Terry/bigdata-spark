@@ -131,7 +131,8 @@ object DauApp {
       filteredList.toIterator
     }
 
-    //duaDstream.print(1000)
+    dauDstream.cache()
+    dauDstream.print(1000)
 
     dauDstream.foreachRDD{rdd =>
       rdd.foreachPartition{ jsonObjItr =>
