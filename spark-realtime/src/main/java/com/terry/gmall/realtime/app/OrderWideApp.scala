@@ -126,14 +126,13 @@ object OrderWideApp {
         orderInfo
       }
       orderInfoRDD
-
     }
 
     //双流join（美团解决方案）
     //1 把流改为k-v tuple2结构
     val orderInfoWithIdDstream: DStream[(Long, OrderInfo)] = orderInfoWithDimDstream.map(orderInfo =>(orderInfo.id,orderInfo))
     val orderDetailWithIdDstream: DStream[(Long, OrderDetail)] = orderDetailDstream.map(orderDetail => (orderDetail.order_id,orderDetail))
-    
+
     //2 进行join操作，合并元组,此阶段有shuffle
     //val orderJoinDstream: DStream[(Long, (OrderInfo, OrderDetail))] = orderInfoWithIdDstream.join(orderDetailWithIdDstream)
     val orderFullJoinedDstream: DStream[(Long, (Option[OrderInfo], Option[OrderDetail]))] = orderInfoWithIdDstream.fullOuterJoin(orderDetailWithIdDstream)
@@ -199,7 +198,7 @@ object OrderWideApp {
         val dt: String = new SimpleDateFormat("yyyy-MM-dd").format(new Date())
         //通过增加id来实现相同的mid的幂等性
         val dataList: List[(String, OrderWide)] = orderWideItr.toList.map(orderWide => (orderWide.detail_id.toString,orderWide))
-        MyEsUtil.saveBulk("gmall2020_order_wide_"+dt,dataList)
+        MyEsUtil.saveBulk("gmall_order_wide_"+dt,dataList)
       }
       OffsetManagerUtil.saveOffset(orderInfoTopic,groupid,orderInfoOffsetRanges)
       OffsetManagerUtil.saveOffset(orderDetailTopic,groupid,orderDetailOffsetRanges)

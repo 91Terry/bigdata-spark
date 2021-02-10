@@ -60,6 +60,10 @@ object HbaseUtil {
     convertToJSONObj(result)
   }
 
+  def main(args: Array[String]): Unit = {
+    println(get("DIM_USER_INFO", "INFO"))
+  }
+
     //json格式转换
   def convertToJSONObj(result: Result):JSONObject ={
     val cells: Array[Cell] = result.rawCells()

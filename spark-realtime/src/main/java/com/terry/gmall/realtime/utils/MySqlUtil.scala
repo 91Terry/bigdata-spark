@@ -14,7 +14,7 @@ object  MySqlUtil {
   def queryList(sql: String): java.util.List[JSONObject] = {
     Class.forName("com.mysql.jdbc.Driver")
     val resultList: java.util.List[JSONObject] = new java.util.ArrayList[JSONObject]()
-    val conn: Connection = DriverManager.getConnection("jdbc:mysql://hadoop102:3306/gmall2020?characterEncoding=utf-8&useSSL=false", "root", "admin")
+    val conn: Connection = DriverManager.getConnection("jdbc:mysql://hadoop102:3306/gmall?characterEncoding=utf-8&useSSL=false", "root", "admin")
     val stat: Statement = conn.createStatement
     println(sql)
     val rs: ResultSet = stat.executeQuery(sql)
