@@ -4,11 +4,13 @@
 
 ### 1、创建业务数据库
 
-![创建业务数据库](E:\code\gmall-realtime-spark\image\创建业务数据库.jpg)
+![创建业务数据库](E:\code\gmall-realtime-spark\image\canal采集\创建业务数据库.jpg)
 
 ### 2、导入建表数据
 
 导入gmall.sql脚本，生成业务数据
+
+![生成数据库](E:\code\gmall-realtime-spark\image\canal采集\生成数据库.jpg)
 
 ### 3、修改配置文件
 
@@ -99,5 +101,16 @@ canal.mq.partitionHash=.*\\..*:$pk$
 [terry@hadoop102 canal]$ bin/startup.sh
 ~~~
 
+![canal启动](E:\code\gmall-realtime-spark\image\canal采集\canal启动.jpg)
 
+### 4、采集测试
 
+ canal中的配置是将采集到的数据发送到Kafka的ODS_BASE_DB_C主题中，所以先开启消费端：
+
+~~~
+[terry@hadoop102 kafka]$ bin/kafka-console-consumer.sh --bootstrap-server  hadoop102:9092 --topic ODS_BASE_DB_C
+~~~
+
+然后在gmall数据库中修改或者插入一条数据，数据都会被实时采集到的kafka
+
+![采集数据](E:\code\gmall-realtime-spark\image\canal采集\采集数据.jpg)

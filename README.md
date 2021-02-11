@@ -28,13 +28,36 @@ app启动数据如下：
 
 
 
-## 大数据平台搭建
+## 集群搭建
 
-* 
+本项目的大数据集群环境采用Apache开源组件搭建，目的是熟悉各组件的功能和用法，加深对开源框架的理解。当然也可以使用CDH全家桶搭建，以业务理解和数据处理为重点。
+
+### 1、Hadoop集群搭建
+
+首先准备三台虚拟机，我买的是阿里云的三台Centos7.5实例，配置均为2核8G。购买虚拟机可以有多种套餐选择，我选择按量付费的模式，就是说用多少就扣费多少，关机不收费。（PS：一个月不到一百块）
+
+![虚拟机实例](E:\code\gmall-realtime-spark\image\虚拟机实例.jpg)
+
+可以看到每台虚拟机都分别分配一个公网ip和私有ip：
+
+* 公网ip：客户端远程访问虚拟机使用
+* 私有ip：集群间各个组件通信使用
+
+因为需要远程访问虚拟机，所以需在安全组添加各组件默认端口
+
+![安全组端口](E:\code\gmall-realtime-spark\image\安全组端口.jpg)
 
 
 
+集群搭建可以参照：[阿里云环境下大数据集群搭建](http://hadoop.love/#/info?blogOid=79)，或者参照本项目中的大数据平台搭建文档。
 
+
+
+![组件](E:\code\gmall-realtime-spark\image\大数据平台搭建\组件.jpg)
+
+### 2、Mysql业务数据的实时采集
+
+通过canal监控mysql业务数据
 
 ## 需求分析
 
@@ -61,6 +84,20 @@ app启动数据如下：
 
 
 
+### 需求二、实时抓取业务数据，实现订单的灵活查询
+
+![需求二](E:\code\gmall-realtime-spark\image\需求分析\需求二.jpg)
+
+
+
+#### 1、业务数据抓取
+
+ 
+
+#### 2、订单灵活查询
+
+
+
 ## 开发进度
 
 ### 1、日活
@@ -73,7 +110,7 @@ app启动数据如下：
 
 ![需求一程序流程图](E:\code\gmall-realtime-spark\image\开发进度\需求一程序流程图.png)
 
-1.3 启动 `com.terry.gmall.realtime.app.DauApp`程序，设置5s从kafka拉取一次数据，会不断读取上次消费数据结束的偏移结束点。
+1.3 启动 `com.terry.gmall.realtime.app.DauApp`程序，设置5s从 kafka拉取一次数据，会不断读取上次消费数据结束的偏移结束点。
 
 ![需求一启动](E:\code\gmall-realtime-spark\image\开发进度\需求一启动.jpg)
 
@@ -107,3 +144,16 @@ app启动数据如下：
 运行可视化程序`com.demo.DemoApplication`浏览可视化页面，访问 http://hadoop102:8089/index
 
 ![需求一可视化](E:\code\gmall-realtime-spark\image\开发进度\需求一可视化.jpg)
+
+
+
+
+
+
+
+
+
+
+
+
+
