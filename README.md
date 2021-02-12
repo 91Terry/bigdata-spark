@@ -15,9 +15,13 @@
 
 app启动数据如下：
 
+![image](https://github.com/91Terry/bigdata-spark/blob/master/image/datas/%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA%E6%97%A5%E5%BF%97.jpg)
+
 ![用户行为日志](E:\code\gmall-realtime-spark\image\datas\用户行为日志.jpg)
 
 事件数据如下：
+
+![image](https://github.com/91Terry/bigdata-spark/blob/master/image/datas/%E4%BA%8B%E4%BB%B6%E6%95%B0%E6%8D%AE.jpg)
 
 ![事件数据](E:\code\gmall-realtime-spark\image\datas\事件数据.jpg)
 
@@ -31,7 +35,7 @@ app启动数据如下：
 
 ### 需求一：当日用户首次登陆（日活）分时趋势图，与昨日对比
 
-![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%9E%E4%BE%8B.jpg)
+![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/%E9%9C%80%E6%B1%82%E4%B8%80.png)
 
 ![需求一](E:\code\gmall-realtime-spark\image\大数据平台搭建\需求一.png)
 
@@ -55,6 +59,8 @@ app启动数据如下：
 
 ### 需求二：实时抓取业务数据，实现订单的灵活查询
 
+![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/%E9%9C%80%E6%B1%82%E4%BA%8C.jpg)
+
 ![需求二](E:\code\gmall-realtime-spark\image\需求分析\需求二.jpg)
 
 
@@ -67,6 +73,8 @@ app启动数据如下：
 - Canal采集的数据，默认是放在一个统一的kafka 的Topic中，为了后续方便处理要进行以表为单位拆分到不同kafka的Topic中。
 - 因为后续还需要对kafka中的事实数据和维度数据进行join操作，而维度表的中的数据不经常变更，所以针对维度数据，要单独保存。通常考虑用redis、hbase、mysql、kudu等通过唯一键查询性能较快的数据库中。我们选择Hbase保存维度数据。
 
+![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/%E9%9C%80%E6%B1%822%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86.png)
+
 ![需求2业务数据采集](E:\code\gmall-realtime-spark\image\需求分析\需求2业务数据采集.png)
 
 #### 2、订单灵活查询
@@ -76,6 +84,8 @@ app启动数据如下：
 > 那么问题来了，Kafka中事实数据和维度数据何时关联？是在写进OLAP前面，还是在写入之后？
 
 由于在很多OLAP数据库对聚合过滤都是非常强大，但是大表间的关联都不是长项。所以在数据进入OLAP前，尽量提前把数据关联组合好，不要在查询的时候临时进行Join操作。也就是说在实时计算中进行流join。
+
+![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/%E9%9C%80%E6%B1%822%E8%AE%A2%E5%8D%95%E6%9F%A5%E8%AF%A2.png)
 
 ![需求2订单查询](E:\code\gmall-realtime-spark\image\需求分析\需求2订单查询.png)
 
@@ -93,7 +103,9 @@ app启动数据如下：
 
 首先准备三台虚拟机，我买的是阿里云的三台Centos7.5实例，配置均为2核8G。购买虚拟机可以有多种套餐选择，我选择按量付费的模式，就是说用多少就扣费多少，关机不收费。（PS：一个月不到一百块）
 
-![虚拟机实例](E:\code\gmall-realtime-spark\image\虚拟机实例.jpg)
+![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%9E%E4%BE%8B.jpg)
+
+![虚拟机实例](E:\code\gmall-realtime-spark\image\大数据平台搭建\虚拟机实例.jpg)
 
 可以看到每台虚拟机都分别分配一个公网ip和私有ip：
 
@@ -102,11 +114,15 @@ app启动数据如下：
 
 因为需要远程访问虚拟机，所以需在安全组添加各组件默认端口
 
+![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/%E5%AE%89%E5%85%A8%E7%BB%84%E7%AB%AF%E5%8F%A3.jpg)
+
 ![安全组端口](E:\code\gmall-realtime-spark\image\大数据平台搭建\安全组端口.jpg)
 
 
 
 集群搭建可以参照：[阿里云环境下大数据集群搭建](http://hadoop.love/#/info?blogOid=79)，或者参照本项目中的大数据平台搭建文档。
+
+![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/%E7%BB%84%E4%BB%B6.jpg)
 
 
 
@@ -126,13 +142,19 @@ app启动数据如下：
 
 1.1 思路：
 
+![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/%E9%9C%80%E6%B1%82%E4%B8%80%E6%80%9D%E8%B7%AF.png)
+
 ![需求一思路](E:\code\gmall-realtime-spark\image\开发进度\需求一思路.png)
 
 1.2 程序流程图： `com.terry.gmall.realtime.app.DauApp`
 
+![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/%E9%9C%80%E6%B1%82%E4%B8%80%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
+
 ![需求一程序流程图](E:\code\gmall-realtime-spark\image\开发进度\需求一程序流程图.png)
 
 1.3 启动 `com.terry.gmall.realtime.app.DauApp`程序，设置5s从 kafka拉取一次数据，会不断读取上次消费数据结束的偏移结束点。
+
+![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/%E9%9C%80%E6%B1%82%E4%B8%80%E5%90%AF%E5%8A%A8.jpg)
 
 ![需求一启动](E:\code\gmall-realtime-spark\image\开发进度\需求一启动.jpg)
 
@@ -144,9 +166,13 @@ app启动数据如下：
 
 控制台可以看到数据流打印，并且已经保存至es中，提交偏移量
 
+![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/%E9%9C%80%E6%B1%82%E4%B8%80%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C.jpg)
+
 ![需求一执行结果](E:\code\gmall-realtime-spark\image\开发进度\需求一执行结果.jpg)
 
 可以分别到redis和es中查看保存的数据
+
+![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/%E9%9C%80%E6%B1%82%E4%B8%80redis%E7%BB%93%E6%9E%9C.jpg)
 
 ![需求一redis结果](E:\code\gmall-realtime-spark\image\开发进度\需求一redis结果.jpg)
 
@@ -164,6 +190,8 @@ app启动数据如下：
 ~~~
 
 运行可视化程序`com.demo.DemoApplication`浏览可视化页面，访问 http://hadoop102:8089/index
+
+![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/%E9%9C%80%E6%B1%82%E4%B8%80%E5%8F%AF%E8%A7%86%E5%8C%96.jpg)
 
 ![需求一可视化](E:\code\gmall-realtime-spark\image\开发进度\需求一可视化.jpg)
 
