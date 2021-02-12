@@ -31,7 +31,7 @@ app启动数据如下：
 
 ### 需求一：当日用户首次登陆（日活）分时趋势图，与昨日对比
 
-[](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%9E%E4%BE%8B.jpg)
+![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%9E%E4%BE%8B.jpg)
 
 ![需求一](E:\code\gmall-realtime-spark\image\大数据平台搭建\需求一.png)
 
