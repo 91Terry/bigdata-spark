@@ -17,7 +17,7 @@ app启动数据如下：
 
 ![image](https://github.com/91Terry/bigdata-spark/blob/master/image/datas/%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA%E6%97%A5%E5%BF%97.jpg)
 
-![用户行为日志](E:\code\gmall-realtime-spark\image\datas\用户行为日志.jpg)
+![](E:\code\gmall-realtime-spark\image\datas\用户行为日志.jpg)
 
 事件数据如下：
 
