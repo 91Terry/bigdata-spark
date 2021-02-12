@@ -23,7 +23,7 @@ app启动数据如下：
 
 ![image](https://github.com/91Terry/bigdata-spark/blob/master/image/datas/%E4%BA%8B%E4%BB%B6%E6%95%B0%E6%8D%AE.jpg)
 
-![事件数据](E:\code\gmall-realtime-spark\image\datas\事件数据.jpg)
+![](E:\code\gmall-realtime-spark\image\datas\事件数据.jpg)
 
 ### 2、业务数据
 
@@ -37,7 +37,7 @@ app启动数据如下：
 
 ![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/%E9%9C%80%E6%B1%82%E4%B8%80.png)
 
-![需求一](E:\code\gmall-realtime-spark\image\大数据平台搭建\需求一.png)
+![](E:\code\gmall-realtime-spark\image\大数据平台搭建\需求一.png)
 
 
 
@@ -61,7 +61,7 @@ app启动数据如下：
 
 ![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/%E9%9C%80%E6%B1%82%E4%BA%8C.jpg)
 
-![需求二](E:\code\gmall-realtime-spark\image\需求分析\需求二.jpg)
+![](E:\code\gmall-realtime-spark\image\需求分析\需求二.jpg)
 
 
 
@@ -75,7 +75,7 @@ app启动数据如下：
 
 ![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/%E9%9C%80%E6%B1%822%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86.png)
 
-![需求2业务数据采集](E:\code\gmall-realtime-spark\image\需求分析\需求2业务数据采集.png)
+![](E:\code\gmall-realtime-spark\image\需求分析\需求2业务数据采集.png)
 
 #### 2、订单灵活查询
 
@@ -87,7 +87,7 @@ app启动数据如下：
 
 ![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/%E9%9C%80%E6%B1%822%E8%AE%A2%E5%8D%95%E6%9F%A5%E8%AF%A2.png)
 
-![需求2订单查询](E:\code\gmall-realtime-spark\image\需求分析\需求2订单查询.png)
+![](E:\code\gmall-realtime-spark\image\需求分析\需求2订单查询.png)
 
 
 
@@ -105,7 +105,7 @@ app启动数据如下：
 
 ![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%9E%E4%BE%8B.jpg)
 
-![虚拟机实例](E:\code\gmall-realtime-spark\image\大数据平台搭建\虚拟机实例.jpg)
+![](E:\code\gmall-realtime-spark\image\大数据平台搭建\虚拟机实例.jpg)
 
 可以看到每台虚拟机都分别分配一个公网ip和私有ip：
 
@@ -116,7 +116,7 @@ app启动数据如下：
 
 ![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/%E5%AE%89%E5%85%A8%E7%BB%84%E7%AB%AF%E5%8F%A3.jpg)
 
-![安全组端口](E:\code\gmall-realtime-spark\image\大数据平台搭建\安全组端口.jpg)
+![](E:\code\gmall-realtime-spark\image\大数据平台搭建\安全组端口.jpg)
 
 
 
@@ -126,7 +126,7 @@ app启动数据如下：
 
 
 
-![组件](E:\code\gmall-realtime-spark\image\大数据平台搭建\组件.jpg)
+![](E:\code\gmall-realtime-spark\image\大数据平台搭建\组件.jpg)
 
 ### 2、Mysql业务数据的实时采集
 
@@ -144,19 +144,19 @@ app启动数据如下：
 
 ![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/%E9%9C%80%E6%B1%82%E4%B8%80%E6%80%9D%E8%B7%AF.png)
 
-![需求一思路](E:\code\gmall-realtime-spark\image\开发进度\需求一思路.png)
+![](E:\code\gmall-realtime-spark\image\开发进度\需求一思路.png)
 
 1.2 程序流程图： `com.terry.gmall.realtime.app.DauApp`
 
 ![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/%E9%9C%80%E6%B1%82%E4%B8%80%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
 
-![需求一程序流程图](E:\code\gmall-realtime-spark\image\开发进度\需求一程序流程图.png)
+![](E:\code\gmall-realtime-spark\image\开发进度\需求一程序流程图.png)
 
 1.3 启动 `com.terry.gmall.realtime.app.DauApp`程序，设置5s从 kafka拉取一次数据，会不断读取上次消费数据结束的偏移结束点。
 
 ![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/%E9%9C%80%E6%B1%82%E4%B8%80%E5%90%AF%E5%8A%A8.jpg)
 
-![需求一启动](E:\code\gmall-realtime-spark\image\开发进度\需求一启动.jpg)
+![](E:\code\gmall-realtime-spark\image\开发进度\需求一启动.jpg)
 
 在hadoop102上生成日志数据发送到kafka
 
@@ -168,13 +168,13 @@ app启动数据如下：
 
 ![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/%E9%9C%80%E6%B1%82%E4%B8%80%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C.jpg)
 
-![需求一执行结果](E:\code\gmall-realtime-spark\image\开发进度\需求一执行结果.jpg)
+![](E:\code\gmall-realtime-spark\image\开发进度\需求一执行结果.jpg)
 
 可以分别到redis和es中查看保存的数据
 
 ![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/%E9%9C%80%E6%B1%82%E4%B8%80redis%E7%BB%93%E6%9E%9C.jpg)
 
-![需求一redis结果](E:\code\gmall-realtime-spark\image\开发进度\需求一redis结果.jpg)
+![](E:\code\gmall-realtime-spark\image\开发进度\需求一redis结果.jpg)
 
 运行 `com.terry.gmall.publisher.GmallPublisherApplication` ，在浏览器中输入：
 
@@ -193,7 +193,7 @@ app启动数据如下：
 
 ![image](https://github.com/91Terry/bigdata-spark/blob/master/image/%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/%E9%9C%80%E6%B1%82%E4%B8%80%E5%8F%AF%E8%A7%86%E5%8C%96.jpg)
 
-![需求一可视化](E:\code\gmall-realtime-spark\image\开发进度\需求一可视化.jpg)
+![](E:\code\gmall-realtime-spark\image\开发进度\需求一可视化.jpg)
 
 
 
